@@ -10,7 +10,7 @@ class ListingController extends Controller
   //Show all listing
   public function index(){
       return view('listings.index', ['listings'=>Listing::latest()->
-          filter(request(['tag', 'search']))->paginate(6)]);
+          filter(request(['tag', 'search']))->paginate(12)]);
   }
 
   //show single listing
@@ -96,8 +96,6 @@ class ListingController extends Controller
     if($listing->user_id != auth()->id() && auth()->id() != 2){ 
         abort(403, 'You are not the owner of this post');
     }
-
-
 
     $listing->delete();
     return redirect('/')->with('message', 'Listng Deleted Successfully!');

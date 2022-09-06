@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         //creating random listings with the random user id
-        Listing::factory(10)->create([
+        Listing::factory(30)->create([
           'user_id'=> $user->id
         ]);
 
